@@ -9,6 +9,8 @@ $fab_file_sound = "sound-for-remote-desktop-server-64bit.msi"
 
 $ProgressPreference = 'SilentlyContinue'
 
+Clear-Host
+
 Write-host "Downloading: " $fab_file_scanner
 Invoke-WebRequest -Uri $fab_app_scanner -OutFile $fab_file_scanner
 Write-host "Installing."
