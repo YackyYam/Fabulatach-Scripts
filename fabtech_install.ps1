@@ -28,3 +28,11 @@ Write-host "Downloading: " $fab_file_sound
 Invoke-WebRequest -Uri $fab_app_sound -OutFile $fab_file_sound
 Write-host "Installing."
 Start-Process -FilePath "msiexec.exe" -ArgumentList "/i", "`"$fab_file_sound`"", "/qn", "/norestart" -Wait   
+
+Clear-Host
+
+Write-host "Cleaning up files."
+Write-host "Deleteing: " $fab_file_scanner
+Write-host "Deleteing: " $fab_file_usb
+Write-host "Deleteing: " $fab_file_webcam
+Write-host "Deleteing: " $fab_file_sound
