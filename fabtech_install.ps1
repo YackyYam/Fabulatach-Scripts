@@ -45,15 +45,18 @@ Write-host ""
 Write-host "Setting up Fabulatech services."
 Write-host ""
 Write-host "Setting 'ftnlsv3' to Delayed Start."
-Set-Service -Name "ftnlsv3" -StartupType AutomaticDelayedStart
+
+sc.exe config "ftnlsv3" start= delayed-auto
 Write-host "Setting 'ftscansvc' to Delayed Start."
-Set-Service -Name "ftscansvc" -StartupType AutomaticDelayedStart
+sc.exe config "ftscansvc" start= delayed-auto
 Write-host "Setting 'ftsndsvc' to Delayed Start."
-Set-Service -Name "ftsndsvc" -StartupType AutomaticDelayedStart
+sc.exe config "ftsndsvc" start= delayed-auto
 Write-host "Setting 'ftusbrdsrv' to Delayed Start."
-Set-Service -Name "ftusbrdsrv" -StartupType AutomaticDelayedStart
+sc.exe config "ftusbrdsrv" start= delayed-auto
 Write-host "Setting 'ftwebcamlicsvc' to Delayed Start."
-Set-Service -Name "ftwebcamlicsvc" -StartupType AutomaticDelayedStart
+sc.exe config "ftwebcamlicsvc" start= delayed-auto
+
+
 sc stop ftusbrdsrv
 reg delete HKLM\SYSTEM\CurrentControlSet\Enum\FABULATECH.COM  /v ftusbrdsrv /f
 sc start ftusbrdsrv
