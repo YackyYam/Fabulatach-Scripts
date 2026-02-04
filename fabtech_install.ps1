@@ -38,3 +38,28 @@ Write-host "Deleteing: " $fab_file_scanner
 Write-host "Deleteing: " $fab_file_usb
 Write-host "Deleteing: " $fab_file_webcam
 Write-host "Deleteing: " $fab_file_sound
+
+Clear-Host
+
+Write-host "Setting up Fabulatech services."
+
+sc config ftnlsv3 start= delayed-auto
+sc config ftscansvc start= delayed-auto
+sc config ftsndsvc start= delayed-auto
+sc config ftusbrdsrv start= delayed-auto
+sc config ftwebcamlicsvc start= delayed-auto
+sc stop ftusbrdsrv
+reg delete HKLM\SYSTEM\CurrentControlSet\Enum\FABULATECH.COM  /v ftusbrdsrv /f
+sc start ftusbrdsrv
+sc stop ftwebcamlicsvc
+reg delete HKLM\SYSTEM\CurrentControlSet\Enum\FABULATECH.COM  /v ftwebcamlicsvc /f
+sc start ftwebcamlicsvc
+sc stop ftscansvc
+reg delete HKLM\SYSTEM\CurrentControlSet\Enum\FABULATECH.COM  /v ftscansvc /f
+sc start ftscansvc
+sc stop ftsndsvc
+reg delete HKLM\SYSTEM\CurrentControlSet\Enum\FABULATECH.COM  /v ftsndsvc /f
+sc start ftsndsvc
+
+Write-host ""
+Write-host "Done."
