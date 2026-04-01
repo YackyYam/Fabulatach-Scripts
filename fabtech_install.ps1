@@ -14,7 +14,7 @@ Clear-Host
 Write-host "Downloading: " $fab_file_scanner
 Invoke-WebRequest -Uri $fab_app_scanner -OutFile $fab_file_scanner
 Write-host "Installing."
-Start-Process -FilePath "msiexec.exe" -ArgumentList "/i", "`"$fab_file_scanner`"", "/qn", "/norestart" -Wait   
+Start-Process -FilePath "msiexec.exe" -ArgumentList "/i", $fab_file_scanner, "/qn", "/norestart" -Wait   
 
 Write-host "Downloading: " $fab_file_usb
 Invoke-WebRequest -Uri $fab_app_usb -OutFile $fab_file_usb
