@@ -12,7 +12,7 @@ $ProgressPreference = 'SilentlyContinue'
 Write-host "Downloading: " $inuvika_file
 Invoke-WebRequest -Uri $inuvika_url -OutFile $inuvika_file
 Write-host "Installing."
-Start-Process -FilePath "msiexec.exe" -ArgumentList "/i", "`"$inuvika_file`"", "/qn", "/norestart" -Wait   
+Start-Process -FilePath "msiexec.exe" -ArgumentList "/i", "`"$inuvika_file`"", "ALLUSERS=1", "/qn" -Wait   
 
 Write-host "Downloading: " $fab_file_usb
 Invoke-WebRequest -Uri $fab_app_usb -OutFile $fab_file_usb
