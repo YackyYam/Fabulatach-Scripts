@@ -14,11 +14,6 @@ Invoke-WebRequest -Uri $inuvika_url -OutFile $inuvika_file
 Write-host "Installing."
 Start-Process -FilePath "msiexec.exe" -ArgumentList "/i", "`"$inuvika_file`"", "/qn", "/norestart" -Wait   
 
-Write-host "Downloading: " $fab_file_scanner
-Invoke-WebRequest -Uri $fab_app_scanner -OutFile $fab_file_scanner
-Write-host "Installing."
-Start-Process -FilePath "msiexec.exe" -ArgumentList "/i", "`"$fab_file_scanner`"", "/qn", "/norestart" -Wait   
-
 Write-host "Downloading: " $fab_file_usb
 Invoke-WebRequest -Uri $fab_app_usb -OutFile $fab_file_usb
 Write-host "Installing."
