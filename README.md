@@ -3,3 +3,5 @@ Copy and past one of the following lines into a Admin Powershell to Uninstall or
 Uninstall:  iex (iwr "https://raw.githubusercontent.com/YackyYam/Fabulatach-Scripts/refs/heads/main/fabtech_uninstall.ps1" -UseBasicParsing)
 
 Install:  iex (iwr "https://raw.githubusercontent.com/YackyYam/Fabulatach-Scripts/refs/heads/main/fabtech_install.ps1" -UseBasicParsing)
+
+Inuvika Install:  iex (iwr "https://raw.githubusercontent.com/YackyYam/Fabulatach-Scripts/refs/heads/main/inuvika_install.ps1" -UseBasicParsing)
